@@ -4,12 +4,40 @@ from PyQt5.QtWidgets import(QApplication, QWidget, QLabel,
                             QLineEdit,QPushButton,QVBoxLayout)
 from PyQt5.QtCore import Qt
 
-class WeatherApp(QWidget):
+class WeatherApp(QWidget): #Weather app inherits from the parent QWidget
     def __init__(self):
         super().__init__()
+        self.city_label = QLabel("Enter city name",self) #userinput
+        self.city_input = QLineEdit(self) #Textbox
+        self.get_weather_button = QPushButton ("Get Weather",self) #button
+        self.temperature_label = QLabel("70°F",self) #placeholder for styling
+        self.emoji_label = QLabel("☻",self)
+        self.description_label = QLabel("Sunny",self)
+        self.initUI()
+    
+    def initUI(self): #inside the user interface method
+        self.setWindowTitle("Weather App") #Title
+
+        vbox = QVBoxLayout() #Layout Manager
+
+        vbox.addWidget(self.city_label)
+        vbox.addWidget(self.city_input)
+        vbox.addWidget(self.get_weather_button)
+        vbox.addWidget(self.temperature_label)
+        vbox.addWidget(self.emoji_label)
+        vbox.addWidget(self.description_label)
+
+        self.setLayout(vbox)
+        
+
+
+
+
+
 
 if __name__== "__main__":
     app = QApplication(sys.argv)
     weather_app = WeatherApp()
     weather_app.show()
     sys.exit(app.exec_())#method handels events in our application eg closing a window
+
