@@ -11,7 +11,7 @@ class WeatherApp(QWidget): #Weather app inherits from the parent QWidget
         self.city_input = QLineEdit(self) #Textbox
         self.get_weather_button = QPushButton ("Get Weather",self) #button
         self.temperature_label = QLabel("70°F",self) #placeholder for styling
-        self.emoji_label = QLabel("☻",self)
+        self.emoji_label = QLabel("☀️",self)
         self.description_label = QLabel("Sunny",self)
         self.initUI()
     
@@ -28,6 +28,51 @@ class WeatherApp(QWidget): #Weather app inherits from the parent QWidget
         vbox.addWidget(self.description_label)
 
         self.setLayout(vbox)
+
+        self.city_label.setAlignment(Qt.AlignCenter) #setalignment
+        self.city_input.setAlignment(Qt.AlignCenter)
+        self.temperature_label.setAlignment(Qt.AlignCenter)
+        self.emoji_label.setAlignment(Qt.AlignCenter)
+        self.description_label.setAlignment(Qt.AlignCenter)
+
+        #set a style sheet
+        self.setStyleSheet("""
+            QLabel, QPushButton{
+                font-family: calibri
+            }
+            QLabel#city_label{
+               font-size:40px;
+               font-style: italic         
+            }
+            QLineEdit#city_input{
+                font-size: 40px;
+            }
+            QPushButton#get_weather_button{
+                font-size: 30px;
+                font-weight:bold;                         
+            }
+            QLabel#temperature_label{
+               font-size: 75px;         
+            }
+            QLabel#emoji_label{
+                font-size: 100px;
+                font-family: Segoe UI emoji;
+            }
+            QLabel#description_label{
+                font-size: 50px;              
+            }
+                           
+        """)
+        
+        
+
+        self.city_label.setObjectName("city_label")
+        self.city_input.setObjectName("city_input")
+        self.get_weather_button.setObjectName("get_weather_button")
+        self.temperature_label.setObjectName("temperature_label")
+        self.emoji_label.setObjectName("emoji_label")
+        self.description_label.setObjectName("description_label")
+
         
 
 
