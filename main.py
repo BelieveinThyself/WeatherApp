@@ -35,6 +35,14 @@ class WeatherApp(QWidget): #Weather app inherits from the parent QWidget
         self.emoji_label.setAlignment(Qt.AlignCenter)
         self.description_label.setAlignment(Qt.AlignCenter)
 
+        self.city_label.setObjectName("city_label")
+        self.city_input.setObjectName("city_input")
+        self.get_weather_button.setObjectName("get_weather_button")
+        self.temperature_label.setObjectName("temperature_label")
+        self.emoji_label.setObjectName("emoji_label")
+        self.description_label.setObjectName("description_label")
+
+
         #set a style sheet
         self.setStyleSheet("""
             QLabel, QPushButton{
@@ -63,16 +71,18 @@ class WeatherApp(QWidget): #Weather app inherits from the parent QWidget
             }
                            
         """)
-        
-        
 
-        self.city_label.setObjectName("city_label")
-        self.city_input.setObjectName("city_input")
-        self.get_weather_button.setObjectName("get_weather_button")
-        self.temperature_label.setObjectName("temperature_label")
-        self.emoji_label.setObjectName("emoji_label")
-        self.description_label.setObjectName("description_label")
+        self.get_weather_button.clicked.connect(self.get_weather)
 
+    #Creating functionality
+    def get_weather(self):
+        print("You get the weather")
+
+    def display_error(self,message):
+        pass
+
+    def display_weather(self,data):
+        pass
         
 
 
